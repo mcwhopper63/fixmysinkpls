@@ -1666,7 +1666,7 @@ index.css
     --dark-mode-bg-color: #333;
     --dark-mode-text-color: #f0f0f0;
     --dark-mode-bg-secondary-color: #3f3f3f;
-    --dark-mode-text-secondary-color: var(--grey-300);
+    --dark-mode-text-**secondary**-color: var(--grey-300);
 
     --background-color: var(--grey-50);
     --text-color: var(--grey-900);
@@ -1877,7 +1877,7 @@ server.js
 ```js
 import * as dotenv from 'dotenv';
 dotenv.config();
-
+$$;
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
