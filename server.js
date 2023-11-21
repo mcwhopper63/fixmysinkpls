@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
 // routes
 import jobRouter from './routers/jobRouter.js';
 
@@ -23,21 +24,8 @@ app.post('/', (req, res) => {
     res.json({ message: 'Data Received', data: req.body });
 });
 
+// middleware for creating, editing,  a job, deleting a job, and
 app.use('/api/v1/jobs', jobRouter);
-
-// app.get('/api/v1/jobs');
-
-// // Create a job
-// app.post('/api/v1/jobs');
-
-// // Get a single job
-// app.get('/api/v1/jobs/:id');
-
-// // Edit a Job
-// app.patch('/api/v1/jobs/:id');
-
-// // Delete Job
-// app.delete('/api/v1/jobs/:id');
 
 // Not Found Middleware
 app.use('*', (req, res) => {
@@ -52,6 +40,12 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 5100;
 
-app.listen(port, () => {
-    console.log(`server is listening at port ${port}`);
-});
+try {
+    await mongoose.connect(process.env.MONGO_URL);
+    app.listen(port, () => {
+        console.log(`server is listening at port ${port}`);
+    });
+} catch (error) {
+    console.log(error);
+    process.exit(1);
+}
