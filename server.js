@@ -28,8 +28,14 @@ app.get('/', (req, res) => {
 
 app.post(
     '/api/v1/test',
-    [body('name').notEmpty().withMessage('name is required')],
-    (req, res) => {
+    [
+        body('name')
+            .notEmpty()
+            .withMessage('name is required')
+            .isLength(10)
+            .withMessage('name has to be at least 10 characters long'),
+    ],
+    (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             const errorMessages = errors.array().map((error) => error.msg);
