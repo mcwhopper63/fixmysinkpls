@@ -5,12 +5,12 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 
-import { validateTest } from './middleware/validationMiddleware.js';
 // routes
 import jobRouter from './routers/jobRouter.js';
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
+// import { validateJobInput } from './middleware/validationMiddleware.js';
 
 const app = express();
 
@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.post('/api/v1/test', validateTest, (req, res) => {
-    const { name } = req.body;
-    res.json({ msg: `hello ${name}` });
-});
+// app.post('/api/v1/test', validateJobInput, (req, res) => {
+//     const { name } = req.body;
+//     res.json({ msg: `hello ${name}` });
+// });
 
 // middleware for creating, editing,  a job, deleting a job, and
 app.use('/api/v1/jobs', jobRouter);

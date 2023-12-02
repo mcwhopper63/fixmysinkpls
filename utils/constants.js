@@ -18,6 +18,6 @@ export const JOB_SORT_BY = {
 };
 
 export const JOB_LOCATION = {
-    FIRST: 201,
-    SECOND: 202,
+    FIRST: 'first building',
+    SECOND: 'second building',
 };
