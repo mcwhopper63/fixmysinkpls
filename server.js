@@ -42,7 +42,7 @@ app.use('*', (req, res) => {
 // Error Middleware
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5100;
+const port = process.env.PORT || 5173;
 
 try {
     await mongoose.connect(process.env.MONGO_URL);
