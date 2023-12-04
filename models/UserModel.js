@@ -9,8 +9,8 @@ const UserSchema = new mongoose.Schema({
         default: 'lastName',
     },
     location: {
-        type: String,
-        default: 'my city',
+        type: Number,
+        default: 202,
     },
     role: {
         type: String,
