@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 
 // routes
 import jobRouter from './routers/jobRouter.js';
-import userRouter from './routers/userRouter.js';
+import authRouter from './routers/authRouter.js';
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/jobs', jobRouter);
 
 // middleware for creating, editing,  a job, deleting a user
-app.use('/api/v1/users', userRouter);
+app.use('/api/v1/auth', authRouter);
 
 // Not Found Middleware
 app.use('*', (req, res) => {
