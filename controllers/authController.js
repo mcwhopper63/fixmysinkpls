@@ -1,7 +1,12 @@
 import bcrypt from 'bcryptjs';
 import { StatusCodes } from 'http-status-codes';
 import User from '../models/UserModel.js';
-import { hashPassword } from '../utils/passwordUtils.js';
+import { hashPassword, comparePassword } from '../utils/passwordUtils.js';
+import {
+    UnauthenticatedError,
+    UnauthorizedError,
+} from '../errors/customErrors.js';
+import { createJWT } from '../utils/tokenUtils.js';
 
 export const register = async (req, res) => {
     const isFirstAccount = (await User.countDocuments()) === 0;
@@ -16,11 +21,23 @@ export const register = async (req, res) => {
     });
 };
 
-export const login = (req, res) => {
-    res.status(StatusCodes.OK).json('login');
-};
+export const login = async (req, res) => {
+    const user = await User.findOne({ email: req.body.email });
 
-export const getAllUsers = async (req, res) => {
-    const users = await User.find({});
-    res.status(StatusCodes.OK).json({ users: users });
+    const isValidUser =
+        user && (await comparePassword(req.body.password, user.password));
+
+    if (!isValidUser) throw new UnauthenticatedError('invalid credentials');
+
+    const token = createJWT({ userID: user._id, role: user.role });
+
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    res.cookie('token', token, {
+        httpOnly: true,
+        expires: new Date(Date.now() + oneDay),
+        secure: process.env.NODE_ENV === 'development',
+    });
+
+    res.status(StatusCodes.OK).json({ msg: 'user logged in' });
 };
