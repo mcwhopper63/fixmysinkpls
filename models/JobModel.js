@@ -20,6 +20,10 @@ const JobSchema = new mongoose.Schema(
             enum: Object.values(JOB_LOCATION),
             default: JOB_LOCATION.SECOND,
         },
+        createdBy: {
+            type: mongoose.Types.ObjectId,
+            ref: 'User',
+        },
     },
     { timestamps: true }
 );

@@ -11,6 +11,7 @@ import authRouter from './routers/authRouter.js';
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
+import authenticateUser from './middleware/authMiddleware.js';
 // import { validateJobInput } from './middleware/validationMiddleware.js';
 
 const app = express();
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
 // });
 
 // middleware for creating, editing,  a job, deleting a job, and
-app.use('/api/v1/jobs', jobRouter);
+app.use('/api/v1/jobs', authenticateUser, jobRouter);
 
 // middleware for creating, editing,  a job, deleting a user
 app.use('/api/v1/auth', authRouter);
