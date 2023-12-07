@@ -11,7 +11,7 @@ import authRouter from './routers/authRouter.js';
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
-import authenticateUser from './middleware/authMiddleware.js';
+import { authenticateUser } from './middleware/authMiddleware.js';
 // import { validateJobInput } from './middleware/validationMiddleware.js';
 
 const app = express();
