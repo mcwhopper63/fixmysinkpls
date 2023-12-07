@@ -3089,18 +3089,7 @@ An HTTP-only cookie is a type of cookie that is designed to be inaccessible to J
 authControllers.js
 
 ```js
-const oneDay = 1000 * 60 * 60 * 24;
-
-res.cookie('token', token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE_ENV === 'production',
-});
-
-res.status(StatusCodes.CREATED).json({ msg: 'user logged in' });
-```
-
-```js
+const oneDay =
 const oneDay = 1000 * 60 * 60 * 24;
 ```
 

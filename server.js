@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 
 // routes
 import jobRouter from './routers/jobRouter.js';
@@ -19,6 +20,9 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
 }
+
+// middleware to use cookie parser
+app.use(cookieParser());
 
 // middleware to turn on json
 app.use(express.json());
