@@ -45,7 +45,7 @@ app.use('/api/v1/jobs', authenticateUser, jobRouter);
 app.use('/api/v1/auth', authRouter);
 
 // middleware for creating, editing,  a job, deleting a user
-app.use('/api/v1/user', userRouter);
+app.use('/api/v1/users', authenticateUser, userRouter);
 
 // Not Found Middleware
 app.use('*', (req, res) => {
