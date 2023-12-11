@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 // routes
 import jobRouter from './routers/jobRouter.js';
 import authRouter from './routers/authRouter.js';
+import userRouter from './routers/userRouter.js';
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
@@ -42,6 +43,9 @@ app.use('/api/v1/jobs', authenticateUser, jobRouter);
 
 // middleware for creating, editing,  a job, deleting a user
 app.use('/api/v1/auth', authRouter);
+
+// middleware for creating, editing,  a job, deleting a user
+app.use('/api/v1/user', userRouter);
 
 // Not Found Middleware
 app.use('*', (req, res) => {
