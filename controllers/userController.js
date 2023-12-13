@@ -11,6 +11,11 @@ export const getCurrentUser = async (req, res) => {
 export const getApplicationStats = async (req, res) => {
     res.status(StatusCodes.OK).json({ msg: 'application status' });
 };
+
 export const updateUser = async (req, res) => {
-    res.status(StatusCodes.OK).json({ msg: 'update user' });
+    let obj = { ...req.body };
+    delete obj.password;
+
+    const updatedUser = await User.findByIdAndUpdate(req.user.userId, obj);
+    res.status(StatusCodes.OK).json({ msg: obj });
 };
