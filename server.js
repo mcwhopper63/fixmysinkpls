@@ -29,14 +29,14 @@ app.use(cookieParser());
 app.use(express.json());
 
 // basic routers and controllers
+
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-// app.post('/api/v1/test', validateJobInput, (req, res) => {
-//     const { name } = req.body;
-//     res.json({ msg: `hello ${name}` });
-// });
+app.get('/api/v1/test', (req, res) => {
+    res.json({ msg: 'test route' });
+});
 
 // middleware for creating, editing,  a job, deleting a job, and
 app.use('/api/v1/jobs', authenticateUser, jobRouter);
@@ -54,10 +54,6 @@ app.use('*', (req, res) => {
 
 // Error Middleware
 app.use(errorHandlerMiddleware);
-
-app.get('/api/v1/test', (req, res) => {
-    res.json({ msg: 'test route' });
-});
 
 const port = process.env.PORT || 5173;
 
