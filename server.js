@@ -55,6 +55,10 @@ app.use('*', (req, res) => {
 // Error Middleware
 app.use(errorHandlerMiddleware);
 
+app.get('/api/v1/test', (req, res) => {
+    res.json({ msg: 'test route' });
+});
+
 const port = process.env.PORT || 5173;
 
 try {
