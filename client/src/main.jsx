@@ -5,7 +5,7 @@ import './index.css';
 import axios from 'axios';
 
 const data = await axios.get('/api/v1/test');
-console.log(data);
+// console.log(data);
 
 // fetch('/api/v1/test')
 //     .then((res) => res.json())
