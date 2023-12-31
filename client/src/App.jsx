@@ -11,6 +11,7 @@ import {
     Stats,
     Profile,
     Admin,
+    EditJob,
 } from './pages';
 
 import { action as registerAction } from './pages/Register';
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
                     { path: 'stats', element: <Stats /> },
                     { path: 'profile', element: <Profile /> },
                     { path: 'admin', element: <Admin /> },
+                    { path: 'edit-job', element: <EditJob /> },
                 ],
             },
             {
