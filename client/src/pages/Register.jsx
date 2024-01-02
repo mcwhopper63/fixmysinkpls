@@ -53,7 +53,7 @@ const Register = () => {
                 <FormRow
                     type="password"
                     name="password"
-                    defaultValue="password1234"
+                    defaultValue="password1"
                 />
                 <FormRow
                     type="text"

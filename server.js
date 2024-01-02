@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, '.client/public')));
 
 // middleware to use cookie parser
 app.use(cookieParser());
