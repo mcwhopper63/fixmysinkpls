@@ -1,5 +1,8 @@
 import { Router } from 'express';
-import { authorizePermissions } from '../middleware/authMiddleware.js';
+import {
+    authorizePermissions,
+    checkForTestUser,
+} from '../middleware/authMiddleware.js';
 import upload from '../middleware/multerMiddleware.js';
 import {
     getCurrentUser,
@@ -17,6 +20,7 @@ router.get(
 );
 router.patch(
     '/update-user',
+    checkForTestUser,
     upload.single('avatar'),
     validateUpdateUserInput,
     updateUser

@@ -5105,7 +5105,7 @@ export const updateUser = async (req, res) => {
 -   create component SubmitBtn (export/import)
 -   add all classes, including'.form-btn'
 -   setup in Register,Login, AddJob, EditJob, Profile
--   make sure to add formBtn prop
+-   make s\*\*ure to add formBtn prop
 
 ```js
 import { useNavigation } from 'react-router-dom';
@@ -5115,7 +5115,7 @@ const SubmitBtn = ({ formBtn }) => {
     return (
         <button
             type="submit"
-            className={`btn btn-block ${formBtn && 'form-btn'}`}
+            classNa**me={`btn btn-block ${formBtn && 'form-btn'}`}
             disabled={isSubmitting}
         >
             {isSubmitting ? 'submitting...' : 'submit'}
