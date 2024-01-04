@@ -68,6 +68,9 @@ app.use('*', (req, res) => {
     res.status(404).json({ msg: 'not found' });
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './public', 'index.html'));
+});
 // Error Middleware
 app.use(errorHandlerMiddleware);
 
