@@ -8,6 +8,8 @@ const SearchContainer = () => {
     const { searchValues } = useAllJobsContext();
     const { search, jobStatus, jobType, sort } = searchValues;
 
+    console.log(searchValues);
+
     const submit = useSubmit();
     const debounce = (onChange) => {
         let timeout;
