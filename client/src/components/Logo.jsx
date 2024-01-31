@@ -1,6 +1,12 @@
 import logo from '../assets/images/logo.svg';
 
-const Logo = () => {
-    return <img src={logo} alt="fix my sink pls" className="logo" />;
+const Logo = ({ className }) => {
+    return (
+        <img
+            src={logo}
+            alt="fixmysinkpls logo"
+            className={className || 'logo'}
+        />
+    );
 };
 export default Logo;

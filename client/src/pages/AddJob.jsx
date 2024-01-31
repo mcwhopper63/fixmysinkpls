@@ -28,8 +28,8 @@ const AddJob = () => {
             <Form method="post" className="form">
                 <h4 className="form-title">add job</h4>
                 <div className="form-center">
-                    <FormRow type="text" name="position" />
-                    <FormRow type="text" name="company" />
+                    <FormRow type="text" name="repairRequest?" />
+                    {/* <FormRow type="text" name="company" /> */}
                     <FormRow
                         type="text"
                         name="jobLocation"

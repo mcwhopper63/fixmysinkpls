@@ -19,8 +19,8 @@ const Navbar = () => {
                     <FaAlignLeft />
                 </button>
                 <div>
-                    <Logo />
-                    <h4 className="logo-text">Fix My Sink Pls</h4>
+                    <Logo className={'logo--sidebar'} />
+                    {/* <h4 className="logo-text">Fix My Sink Pls</h4> */}
                 </div>
                 <div className="btn-container">
                     <ThemeToggle />

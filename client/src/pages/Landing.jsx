@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Wrapper from '../assets/wrappers/LandingPage';
-import main from '../assets/images/landingMain.svg';
+import main from '../assets/images/hero - dalle.png';
 import { Logo } from '../components';
 
 const Landing = () => {
     return (
         <Wrapper>
             <nav>
-                <Logo />
+                <Logo className="logo--landingPage" />
             </nav>
             <div className="container page">
                 <div className="info">
                     <h1>
-                        A <span>Property Management</span> Solution
+                        A <span>Property Management</span> Tool
                     </h1>
                     <p>
-                        A platform for tenants and property managers to
-                        seamlessly communicate. Tenants can submit their repair
-                        tickets. Property Managers can announce notices.
+                        Created with convenience and efficiency in mind, tenants
+                        can easily submit and manage repair tickets. Property
+                        Managers can efficiently track and resolve these
+                        requests.
                     </p>
                     <Link to="/register" className="btn register-link">
                         Register
