@@ -28,7 +28,7 @@ const AddJob = () => {
             <Form method="post" className="form">
                 <h4 className="form-title">add job</h4>
                 <div className="form-center">
-                    <FormRow type="text" name="repairRequest?" />
+                    <FormRow type="text" name="what broke?" />
                     {/* <FormRow type="text" name="company" /> */}
                     <FormRow
                         type="text"
@@ -42,12 +42,12 @@ const AddJob = () => {
                         defaultValue={JOB_STATUS.PENDING}
                         list={Object.values(JOB_STATUS)}
                     />
-                    <FormRowSelect
+                    {/* <FormRowSelect
                         name="jobType"
                         labelText="job type"
                         defaultValue={JOB_TYPE.FULL_TIME}
                         list={Object.values(JOB_TYPE)}
-                    />
+                    /> */}
                     <SubmitBtn formBtn />
                 </div>
             </Form>
