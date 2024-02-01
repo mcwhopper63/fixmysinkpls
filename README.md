@@ -17,7 +17,10 @@ Created with MongoDB, Express, React, Node
 
 3.  **Installation and Setup**:
 
-    tbd
+    1. Clone the repository to your local drive
+    2. Let's install the server. Go to your terminal, navigate to the base directory, and run `npm install`
+    3. Let's now install the client. From the terminal, navigate to the client base directory and run `npm install` once more
+    4. Now let's run the application from your local drive by navigating to the root directory (where the server is), and run `npm run dev`
 
 4.  **Product Screenshots**
 
